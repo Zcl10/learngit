@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+  <arg name="config" default="$(find manual_gui)/launch/params/demo_parameters.yaml" />
+
+  <node pkg="manual_gui" type="manual_gui" name="manual_gui" output="screen">
+    <rosparam command="load" file="$(arg config)"/>
+  </node>
+
+   <node name="reconfigure_gui" pkg="rqt_gui" type="rqt_gui" />
+
+</launch>

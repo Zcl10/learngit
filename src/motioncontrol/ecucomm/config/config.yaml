@@ -1,0 +1,14 @@
+# ecucomm parameters
+
+# getecudata params
+is_human_brake_threshold:  0.65 # if there always exists warning info "human brake detected" from ecucomm, this value may be too low. just set a little higher. org 0.65
+ecudata_ROS_INFO_enabled:  true
+
+# sendecudata params
+mode_elapse_time_ms:      200.0
+gear_elapse_time_ms:      200.0
+steer_elapse_time_ms:     200.0
+speed_elapse_time_ms:     200.0
+light_elapse_time_ms:     200.0
+
+

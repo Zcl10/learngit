@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <arg name="configfile" default="$(find ecucomm)/config/configmulti.xml" />
+  <arg name="config_yaml" default="$(find ecucomm)/config/config.yaml" />
+  <arg name="logdir" default="--log_dir=$(find ecucomm)/log" />
+  <arg name="glogparam" default="--logtostderr=0  --colorlogtostderr=1 --stderrthreshold=5   $(arg logdir)" />
+
+  <node pkg="ecucomm" type="ecuchannel" name="ecuchannel" args="$(arg glogparam)" output="screen">
+  	<param name="config_file" value="$(arg configfile)"/>
+  </node>
+
+  <node pkg="ecucomm" type="getecudata" name="getecudata" args="$(arg glogparam)"  output="screen">
+    <rosparam command="load" file="$(arg config_yaml)"/>
+  </node>
+
+ 
+  <node pkg="ecucomm" type="sendecudata" name="sendecudata" args="$(arg glogparam)" output="screen">
+    <rosparam command="load" file="$(arg config_yaml)"/>
+  </node>
+
+</launch>
+
+
